@@ -92,9 +92,21 @@ namespace Library.Set
 			System.Console.WriteLine();
 		}
 
-		public void Sort()
+		public bool Contains(T data)
 		{
-
+			var currentNode = this.head;
+			while (currentNode != null)
+			{
+				if (currentNode.Data.ToString() == data.ToString())
+					return true;
+				else
+					currentNode = currentNode.Next;
+			}
+			return false;
 		}
+
+		public virtual void Operation(Set<T> externalSet) { }
+
+		public virtual void Sort() { }
 	}
 }
